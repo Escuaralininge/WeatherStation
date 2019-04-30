@@ -8,7 +8,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -54,14 +53,14 @@ public class FileManager {
 		}
 	}
 
-	public ArrayList<String> grep (ArrayList<String> al, String p) {
-		ArrayList<String> fal = new ArrayList<String>();
-		for (String s: al) {
-			if (s.contains(p)) {
-				fal.add(s);
+	public ArrayList<String> grep (ArrayList<String> arrayList, String pattern) {
+		ArrayList<String> finalArrayList = new ArrayList<String>();
+		for (String line: arrayList) {
+			if (line.contains(pattern)) {
+				finalArrayList.add(line);
 			}
 		}
-		return fal;
+		return finalArrayList;
 	}
 
 }

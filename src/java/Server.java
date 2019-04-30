@@ -1,11 +1,11 @@
 package main;
 
+import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.io.PrintWriter;
-import java.io.BufferedReader;
-import java.io.IOException;
 
 public class Server implements Runnable {
 
@@ -18,14 +18,9 @@ public class Server implements Runnable {
 		this.port = port;
 	}
 
-	public void start () {
-		thread.start();
-		active = true;
-	}
-
 	@Override
 	public void run () {
-		while (true) {
+		while (true){
 			try (
 				ServerSocket serverSocket = new ServerSocket(port);
 				Socket socket = serverSocket.accept();
@@ -43,6 +38,11 @@ public class Server implements Runnable {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public void start () {
+		thread.start();
+		active = true;
 	}
 
 	public void stop () {
