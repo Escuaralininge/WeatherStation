@@ -1,2 +1,6 @@
 # WeatherStation
-java/python weather station
+
+#Usefull packages:
+ant
+jdk8-openjdk
+python3
