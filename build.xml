@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="AntBuild" default="default" basedir=".">	
+
+	<property name="build.dir" value="build"/>
+	<property name="classes.dir" value="${build.dir}/classes"/>
+	<property name="jars.dir" value="${build.dir}/jars"/>
+	<property name="src.dir" value="src/java"/>	
+
+	<property name="jar.file" value="${jars.dir}/Main.jar"/>
+	<property name="main.class" value="main.Main"/>
+
+	<target name="clear">
+		<delete dir="${build.dir}"/>
+	</target>
+
+	<target name="build">
+		<mkdir dir="${build.dir}"/>
+		<mkdir dir="${classes.dir}"/>
+		<mkdir dir="${jars.dir}"/>
+		<javac srcdir="${src.dir}" destdir="${classes.dir}"/>
+		<jar destfile="${jar.file}" basedir="${classes.dir}">
+			<manifest>
+				<attribute name="Main-Class" value="${main.class}"/>
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="run">
+		<java jar="${jar.file}" fork="true"/>
+	</target>
+
+</project>
