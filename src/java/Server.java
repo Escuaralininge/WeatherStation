@@ -28,12 +28,18 @@ public class Server implements Runnable {
 							new InputStreamReader(
 							socket.getInputStream()));
 				PrintWriter printWriter = new PrintWriter(
-							socket.getOutputStream());
+							socket.getOutputStream()); 
 			) {
-				String string;
-				while ((string = bufferedReader.readLine()) != null) {
-					System.out.println(string);
+				String line;
+				while ((line = bufferedReader.readLine()) != null) {
+					System.out.println(line);
+					if (line.isEmpty()) break;
 				}
+
+				printWriter.write("HTTP/1.0 200 OK\r\n");
+        		printWriter.write("<TITLE>WeatherStation</TITLE>");
+        		printWriter.write("<P>HolaMundo.</P>");
+
 			}catch (IOException e) {
 				e.printStackTrace();
 			}

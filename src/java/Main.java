@@ -4,7 +4,14 @@ public class Main {
   
 	public static void main (String [] args) {
 
-		System.out.println("WeatherStation!");
+		startServer();
+
+	}
+
+	public static void startServer () {
+
+		Server server = new Server(4040);
+		server.start();
 
 	}
 
