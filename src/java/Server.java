@@ -37,8 +37,15 @@ public class Server implements Runnable {
 				}
 
 				printWriter.write("HTTP/1.0 200 OK\r\n");
-        		printWriter.write("<TITLE>WeatherStation</TITLE>");
-        		printWriter.write("<P>HolaMundo.</P>");
+				printWriter.write("Date: Fri, 31 Dec 1999 23:59:59 GMT\r\n");
+       			printWriter.write("Server: Apache/0.8.4\r\n");
+        		printWriter.write("Content-Type: text/html\r\n");
+        		printWriter.write("Content-Length: 59\r\n");
+        		printWriter.write("Expires: Sat, 01 Jan 2000 00:59:59 GMT\r\n");
+        		printWriter.write("Last-modified: Fri, 09 Aug 1996 14:21:40 GMT\r\n");
+        		printWriter.write("\r\n");
+        		printWriter.write("<TITLE>jajajaja</TITLE>");
+        		printWriter.write("<P>x</P>");
 
 			}catch (IOException e) {
 				e.printStackTrace();
