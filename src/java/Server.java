@@ -45,14 +45,8 @@ public class Server implements Runnable {
        				printWriter.write("Expires: Sat, 01 Jan 2000 00:59:59 GMT\r\n");
         			printWriter.write("Last-modified: Fri, 09 Aug 1996 14:21:40 GMT\r\n");
 	        		printWriter.write("\r\n");
-
-				FileManager fileManager = new FileManager(
-					"../../html-header.txt");
-				ArrayList<String> arrayList = fileManager.readFile();
-				for (String requestLine: arrayList) {
-					System.out.println(requestLine);
-					printWriter.write(requestLine);
-				}
+				
+				printWriter.write("<h1>Hola Mundo</h1>");
 
 			}catch (IOException e) {
 				e.printStackTrace();
